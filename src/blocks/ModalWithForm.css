@@ -1,0 +1,111 @@
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #0000004d;
+  visibility: hidden;
+}
+.modal_opened {
+  opacity: 1;
+  transition: opacity 0.8s ease-in-out;
+  visibility: visible;
+}
+.modal__form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  background-color: #ffffff;
+  position: relative;
+}
+.modal__title {
+  font-family: "CabinetGrotesk", Helvetica, sans-serif;
+  font-size: 16px;
+  line-height: 20px;
+  font-weight: 700;
+  margin-bottom: 24px;
+  margin-top: 0;
+}
+
+.modal__label {
+  font-family: "CabinetGrotesk", Helvetica, sans-serif;
+  font-size: 16px;
+  line-height: 20px;
+  font-weight: 700;
+  margin-bottom: 24px;
+  border-bottom: 1px solid #000000;
+}
+
+.modal__label_type_radio {
+  border-bottom: none;
+  margin-bottom: 8px;
+  color: #00000080;
+}
+
+.modal__container {
+  font-family: "CabinetGrotesk", Helvetica, sans-serif;
+  position: relative;
+  background-color: #ffffff;
+  padding: 28px 28px 36px 28px;
+  border-radius: 20px;
+  max-width: 496px;
+  box-sizing: border-box;
+  width: 100%;
+}
+.modal__input {
+  border-style: none;
+  background-color: transparent;
+  display: block;
+}
+
+.modal__submit {
+  height: 36px;
+  width: 124px;
+  border-style: none;
+  border-radius: 4px;
+  background-color: #000000;
+  opacity: 30%;
+  color: #ffffff;
+}
+
+.modal__submit:hover {
+  background-color: #000000;
+  opacity: 60%;
+}
+
+.modal__close {
+  top: 20px;
+  right: 28px;
+  position: absolute;
+  top: 10;
+  background: url(../assets/black_close-button.png);
+  background-repeat: no-repeat;
+  border-style: none;
+  height: 14px;
+  width: 14px;
+  background-position: center;
+  background-color: transparent;
+}
+.modal__legend {
+  margin-bottom: 12px;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 20px;
+  padding: 0;
+}
+.modal__radio-buttons {
+  display: flex;
+  flex-direction: column;
+  border-style: none;
+  padding: 0;
+  margin: 0;
+  margin-bottom: 24px;
+}
+
+.modal__input_type_radio:checked + .modal__radio_text {
+  color: rgba(0, 0, 0, 1);
+}

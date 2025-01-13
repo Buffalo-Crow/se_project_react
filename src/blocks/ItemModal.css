@@ -1,0 +1,45 @@
+.modal__image {
+  border-top-left-radius: 19px;
+  border-top-right-radius: 19px;
+  width: 100%;
+}
+
+.modal__container_type-image {
+  padding: 0;
+  display: block;
+}
+
+.modal__caption {
+  font-size: 20px;
+  line-height: 24px;
+  font-family: "CabinetGrotesk", Helvetica, sans-serif;
+  font-weight: 700;
+  padding-top: 20px;
+  padding-left: 32px;
+  margin: 0;
+}
+
+.modal__weather {
+  font-size: 20px;
+  line-height: 24px;
+  font-family: "CabinetGrotesk", Helvetica, sans-serif;
+  font-weight: 700;
+  padding-left: 32px;
+  margin: 0;
+  padding-top: 12px;
+  padding-bottom: 32px;
+}
+
+.modal__close_preview {
+  z-index: 1;
+  position: absolute;
+  top: 27px;
+  left: 450px;
+  background: url(../assets/white_close-Btn.png);
+  background-repeat: no-repeat;
+  border-style: none;
+  height: 14px;
+  width: 14px;
+  background-position: center;
+  background-color: transparent;
+}

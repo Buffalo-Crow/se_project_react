@@ -1,0 +1,22 @@
+.footer {
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 24px;
+  font-family: "CabinetGrotesk-Medium", Helvetica, sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 20px;
+}
+.footer__name {
+  font-family: "CabinetGrotesk", Helvetica, sans-serif;
+  font-size: 16px;
+  line-height: 20px;
+  font-weight: 500;
+}
+
+.footer__date {
+  font-family: "CabinetGrotesk", Helvetica, sans-serif;
+  font-size: 16px;
+  line-height: 20px;
+  font-weight: 500;
+}
