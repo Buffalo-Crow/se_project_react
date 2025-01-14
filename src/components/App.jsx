@@ -52,8 +52,9 @@ function App() {
         title="New Garment"
         activeModal={activeModal}
         closeActiveModal={closeActiveModal}
+        isOpen={activeModal === "add-garment"}
       >
-        <label htmlFor="" className="modal__label">
+        <label className="modal__label">
           Name{" "}
           <input
             placeholder="Name"
@@ -107,6 +108,7 @@ function App() {
         item={selectedCard}
         handleCardClick={handleCardClick}
         closeActiveModal={closeActiveModal}
+        isOpen={activeModal === "preview"}
       />
     </div>
   );
