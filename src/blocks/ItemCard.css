@@ -24,3 +24,9 @@
   border-radius: 19px;
   border: 1px solid black;
 }
+
+@media screen and (max-width: 450px) {
+  .card {
+    width: 164px;
+  }
+}

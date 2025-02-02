@@ -24,8 +24,8 @@
 
 .header__add-clothes-btn {
   height: 24px;
-  padding-right: 20px;
-  margin-left: auto;
+  padding: 0 20px;
+
   border-style: none;
   background: transparent;
   font-size: 20px;

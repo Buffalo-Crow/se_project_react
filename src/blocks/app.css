@@ -8,3 +8,10 @@
   padding: 0 40px;
   box-sizing: border-box;
 }
+
+@media screen and (max-width: 450px) {
+  .app {
+    max-width: 375px;
+    padding: 18px 16px;
+  }
+}

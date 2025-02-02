@@ -1,6 +1,6 @@
 import "../blocks/ItemModal.css";
 
-function ItemModal({ activeModal, item, closeActiveModal, handleCardClick }) {
+function ItemModal({ activeModal, item, closeActiveModal }) {
   return (
     <div className={`modal ${activeModal === "preview" && "modal_opened"}`}>
       <div className="modal__container modal__container_type-image">
