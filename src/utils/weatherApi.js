@@ -9,7 +9,10 @@ function checkResponse(res) {
 export const filterWeatherData = (data) => {
   const weatherResult = {};
   weatherResult.city = data.name;
-  weatherResult.temp = { F: data.main.temp };
+  weatherResult.temp = {
+    F: Math.round(data.main.temp),
+    C: Math.round(((data.main.temp - 32) * 5) / 9),
+  };
   weatherResult.type = getWeatherType(weatherResult.temp.F);
   return weatherResult;
 };

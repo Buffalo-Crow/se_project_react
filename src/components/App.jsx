@@ -1,12 +1,15 @@
 import { useState } from "react";
 import { useEffect } from "react";
+import { Route, Routes } from "react-router-dom";
 
-import "../blocks/app.css";
+import "../blocks/App.css";
 import Header from "./Header";
 import Main from "./Main";
 import Footer from "./Footer";
 import ModalWithForm from "./ModalWithForm";
 import ItemModal from "./ItemModal";
+import Profile from "./Profile";
+
 import { getWeather, filterWeatherData } from "../utils/weatherApi";
 import { CurrentTempertatureUnitContext } from "../contexts/CurrentTemperatureUnitContext";
 
@@ -17,7 +20,10 @@ function App() {
     type: "",
     temp: { F: 999, C: 999 },
     city: "",
+    condition: "",
+    isDay: false,
   });
+
   const [activeModal, setActiveModal] = useState("");
   const [selectedCard, setSelectedCard] = useState({});
   const [currentTemperatureUnit, setCurrentTemperatureUnit] = useState("F");
@@ -35,6 +41,10 @@ function App() {
     setSelectedCard(item);
   };
 
+  const handleToggleSwitchChange = () => {
+    setCurrentTemperatureUnit(currentTemperatureUnit === "F" ? "C" : "F");
+  };
+
   useEffect(() => {
     getWeather(coordinates, APIkey)
       .then((data) => {
@@ -45,10 +55,24 @@ function App() {
   }, []);
 
   return (
-    <CurrentTempertatureUnitContext.Provider value={currentTemperatureUnit}>
+    <CurrentTempertatureUnitContext.Provider
+      value={{ currentTemperatureUnit, handleToggleSwitchChange }}
+    >
       <div className="app">
         <Header handleAddClick={handleAddClick} weatherData={weatherData} />
-        <Main weatherData={weatherData} handleCardClick={handleCardClick} />
+        <Routes>
+          <Route
+            path="/"
+            element={
+              <Main
+                weatherData={weatherData}
+                handleCardClick={handleCardClick}
+              />
+            }
+          />
+          <Route path="/profile" element={<Profile />} />
+        </Routes>
+
         <Footer />
         <ModalWithForm
           buttonText="Add Garment"

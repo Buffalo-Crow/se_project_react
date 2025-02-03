@@ -1,0 +1,22 @@
+.sidebar__profile {
+  display: flex;
+  padding-top: 15px;
+  width: 696px;
+}
+
+.sidebar__avatar {
+  height: 56px;
+  width: 56px;
+  padding-right: 16px;
+}
+
+.sidebar__username {
+  height: 24px;
+  padding-bottom: 15px;
+  padding-top: 16px;
+  font-size: 20px;
+  line-height: 24px;
+  font-weight: 700;
+  margin: 0;
+  font-family: "CabinetGrotesk", Helvetica, sans-serif;
+}
