@@ -57,6 +57,7 @@
   width: 100%;
 }
 .modal__input {
+  width: 100%;
   border-style: none;
   background-color: transparent;
   display: block;

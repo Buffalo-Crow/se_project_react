@@ -21,6 +21,10 @@
   padding: 0;
 }
 
+.cards__list_profile {
+  padding-bottom: 80px;
+}
+
 .cards__text {
   font-family: "CabinetGrotesk", Helvetica, sans-serif;
   margin-top: 40px;

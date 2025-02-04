@@ -6,7 +6,6 @@ import "../blocks/App.css";
 import Header from "./Header";
 import Main from "./Main";
 import Footer from "./Footer";
-import ModalWithForm from "./ModalWithForm";
 import ItemModal from "./ItemModal";
 import Profile from "./Profile";
 
@@ -14,6 +13,8 @@ import { getWeather, filterWeatherData } from "../utils/weatherApi";
 import { CurrentTempertatureUnitContext } from "../contexts/CurrentTemperatureUnitContext";
 
 import { coordinates, APIkey } from "../utils/constants";
+import AddItemModal from "./AddItemModal";
+import { defaultClothingItems } from "../utils/constants";
 
 function App() {
   const [weatherData, setWeatherData] = useState({
@@ -27,6 +28,7 @@ function App() {
   const [activeModal, setActiveModal] = useState("");
   const [selectedCard, setSelectedCard] = useState({});
   const [currentTemperatureUnit, setCurrentTemperatureUnit] = useState("F");
+  const [clothingItems, setClothingItems] = useState(defaultClothingItems);
 
   const handleAddClick = () => {
     setActiveModal("add-garment");
@@ -44,6 +46,7 @@ function App() {
   const handleToggleSwitchChange = () => {
     setCurrentTemperatureUnit(currentTemperatureUnit === "F" ? "C" : "F");
   };
+  const handleSubmit = () => {};
 
   useEffect(() => {
     getWeather(coordinates, APIkey)
@@ -67,6 +70,7 @@ function App() {
               <Main
                 weatherData={weatherData}
                 handleCardClick={handleCardClick}
+                clothingItems={clothingItems}
               />
             }
           />
@@ -74,62 +78,11 @@ function App() {
         </Routes>
 
         <Footer />
-        <ModalWithForm
-          buttonText="Add Garment"
-          title="New Garment"
-          activeModal={activeModal}
+        <AddItemModal
           closeActiveModal={closeActiveModal}
           isOpen={activeModal === "add-garment"}
-        >
-          <label className="modal__label">
-            Name{" "}
-            <input
-              placeholder="Name"
-              className="modal__input"
-              type="text"
-              id="name"
-            />{" "}
-          </label>
-          <label className="modal__label">
-            Image{" "}
-            <input
-              type="url"
-              className="modal__input"
-              placeholder="Image URL"
-              id="imageUrl"
-            />{" "}
-          </label>
-          <fieldset className="modal__radio-buttons">
-            <legend className="modal__legend">Select the Weather Type</legend>
-            <label className="modal__label modal__label_type_radio">
-              <input
-                name="weather"
-                className="modal__input_type_radio"
-                type="radio"
-                id="cold"
-              />
-              <span className="modal__radio_text">Hot</span>
-            </label>
-            <label className="modal__label modal__label_type_radio">
-              <input
-                name="weather"
-                className="modal__input_type_radio"
-                type="radio"
-                id="cold"
-              />
-              <span className="modal__radio_text">Warm</span>
-            </label>
-            <label className="modal__label modal__label_type_radio">
-              <input
-                name="weather"
-                className="modal__input_type_radio"
-                type="radio"
-                id="cold"
-              />
-              <span className="modal__radio_text">Cold</span>
-            </label>
-          </fieldset>
-        </ModalWithForm>
+          activeModal={activeModal}
+        />
         <ItemModal
           activeModal={activeModal}
           item={selectedCard}
