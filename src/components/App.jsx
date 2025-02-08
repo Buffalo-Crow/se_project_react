@@ -1,3 +1,5 @@
+// fix submit button for adding clothing items ????? event handler or do a debugger
+
 import { useState } from "react";
 import { useEffect } from "react";
 import { Route, Routes } from "react-router-dom";
@@ -46,7 +48,11 @@ function App() {
   const handleToggleSwitchChange = () => {
     setCurrentTemperatureUnit(currentTemperatureUnit === "F" ? "C" : "F");
   };
-  const handleSubmit = () => {};
+
+  const handleAddItemModalSubmit = ({ name, imageUrl, weatherType }) => {
+    setClothingItems([{ name, link: imageUrl, weatherType }, ...clothingItems]);
+    closeActiveModal();
+  };
 
   useEffect(() => {
     getWeather(coordinates, APIkey)
@@ -82,6 +88,7 @@ function App() {
           closeActiveModal={closeActiveModal}
           isOpen={activeModal === "add-garment"}
           activeModal={activeModal}
+          onAddItemModalSubmit={handleAddItemModalSubmit}
         />
         <ItemModal
           activeModal={activeModal}

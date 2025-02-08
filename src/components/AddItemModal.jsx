@@ -2,7 +2,12 @@ import ModalWithForm from "./ModalWithForm";
 import "../blocks/AddItemModal.css";
 import { useState } from "react";
 
-function AddItemModal({ closeActiveModal, isOpen, activeModal }) {
+function AddItemModal({
+  closeActiveModal,
+  isOpen,
+  activeModal,
+  onAddItemModalSubmit,
+}) {
   const [name, setName] = useState("");
   const [imageUrl, setImageUrl] = useState("");
   const [weatherType, setWeatherType] = useState("");
@@ -19,6 +24,14 @@ function AddItemModal({ closeActiveModal, isOpen, activeModal }) {
     setWeatherType(e.target.value);
   };
 
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    onAddItemModalSubmit({ name, imageUrl, weatherType });
+    setImageUrl("");
+    setName("");
+    setWeatherType("");
+  };
+
   return (
     <ModalWithForm
       buttonText="Add Garment"
@@ -26,6 +39,7 @@ function AddItemModal({ closeActiveModal, isOpen, activeModal }) {
       activeModal={activeModal}
       closeActiveModal={closeActiveModal}
       isOpen={isOpen}
+      onSubmit={handleSubmit}
     >
       <label className="modal__label">
         Name{" "}
@@ -60,7 +74,8 @@ function AddItemModal({ closeActiveModal, isOpen, activeModal }) {
             name="weather"
             className="modal__input_type_radio"
             type="radio"
-            id="hot"
+            id="choiceHot"
+            value="hot"
             checked={weatherType === "hot"}
             onChange={handleWeatherChange}
           />
@@ -71,7 +86,8 @@ function AddItemModal({ closeActiveModal, isOpen, activeModal }) {
             name="weather"
             className="modal__input_type_radio"
             type="radio"
-            id="warm"
+            id="choiceWarm"
+            value="warm"
             checked={weatherType === "warm"}
             onChange={handleWeatherChange}
           />
@@ -82,7 +98,8 @@ function AddItemModal({ closeActiveModal, isOpen, activeModal }) {
             name="weather"
             className="modal__input_type_radio"
             type="radio"
-            id="cold"
+            id="choiceCold"
+            value="cold"
             checked={weatherType === "cold"}
             onChange={handleWeatherChange}
           />

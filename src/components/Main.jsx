@@ -1,5 +1,4 @@
 import WeatherCard from "../components/WeatherCard";
-import { defaultClothingItems } from "../utils/constants";
 import ItemCard from "../components/ItemCard";
 import "../blocks/Main.css";
 import { useContext } from "react";
