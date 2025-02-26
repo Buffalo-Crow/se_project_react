@@ -16,7 +16,8 @@ import { CurrentTempertatureUnitContext } from "../contexts/CurrentTemperatureUn
 
 import { coordinates, APIkey } from "../utils/constants";
 import AddItemModal from "./AddItemModal";
-import { defaultClothingItems } from "../utils/constants";
+//import { defaultClothingItems } from "../utils/constants";
+import { getItems } from "../utils/api";
 
 function App() {
   const [weatherData, setWeatherData] = useState({
@@ -30,7 +31,7 @@ function App() {
   const [activeModal, setActiveModal] = useState("");
   const [selectedCard, setSelectedCard] = useState({});
   const [currentTemperatureUnit, setCurrentTemperatureUnit] = useState("F");
-  const [clothingItems, setClothingItems] = useState(defaultClothingItems);
+  const [clothingItems, setClothingItems] = useState([]);
 
   const handleAddClick = () => {
     setActiveModal("add-garment");
@@ -50,7 +51,10 @@ function App() {
   };
 
   const handleAddItemModalSubmit = ({ name, imageUrl, weatherType }) => {
-    setClothingItems([{ name, link: imageUrl, weatherType }, ...clothingItems]);
+    setClothingItems([
+      { name, link: imageUrl, weather: weatherType },
+      ...clothingItems,
+    ]);
     closeActiveModal();
   };
 
@@ -59,6 +63,14 @@ function App() {
       .then((data) => {
         const filteredData = filterWeatherData(data);
         setWeatherData(filteredData);
+      })
+      .catch(console.error);
+  }, []);
+
+  useEffect(() => {
+    getItems()
+      .then((data) => {
+        setClothingItems(data);
       })
       .catch(console.error);
   }, []);
@@ -80,7 +92,16 @@ function App() {
               />
             }
           />
-          <Route path="/profile" element={<Profile />} />
+          <Route
+            path="/profile"
+            element={
+              <Profile
+                onCardClick={handleCardClick}
+                handleAddClick={handleAddClick}
+                clothingItems={clothingItems}
+              />
+            }
+          />
         </Routes>
 
         <Footer />
