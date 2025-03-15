@@ -1,5 +1,4 @@
 import "../blocks/ClothesSection.css";
-import { defaultClothingItems } from "../utils/constants";
 import ItemCard from "./ItemCard";
 
 function ClothesSection({ onCardClick, handleAddClick, clothingItems }) {

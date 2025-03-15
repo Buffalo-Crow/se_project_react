@@ -13,7 +13,7 @@ function handleDeleteCard(id) {
   }).then((res) => checkResponse(res));
 }
 
-function addItem(name, imageUrl, weather) {
+function addItem({ name, imageUrl, weatherType }) {
   return fetch(`${baseUrl}/items`, {
     method: "POST",
     headers: {
@@ -22,7 +22,7 @@ function addItem(name, imageUrl, weather) {
     body: JSON.stringify({
       name: name,
       imageUrl: imageUrl,
-      weather: weather,
+      weather: weatherType,
     }),
   }).then((res) => checkResponse(res));
 }

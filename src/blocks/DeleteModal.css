@@ -1,0 +1,58 @@
+.modal__delete-container {
+  position: relative;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 24px;
+  text-align: center;
+  border-radius: 20px;
+  padding: 28px 28px 12px 28px;
+  text-align: center;
+  font-family: "CabinetGrotesk", Helvetica, sans-serif;
+  width: 670px;
+  height: 280px;
+  background-color: white;
+}
+
+.modal__close_delete {
+  position: absolute;
+  top: 20px;
+  left: 679px;
+}
+.modal__delete-caption-one {
+  margin-top: 60px;
+  margin-bottom: 0;
+  font-size: 16px;
+  line-height: 20px;
+}
+
+.modal__delete-caption-two {
+  font-size: 16px;
+  margin-top: 0;
+}
+
+.modal__delete-buttons {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  padding: 0 28px 36px 28px;
+}
+
+.modal__delete-buttons button {
+  padding: 8px 12px;
+  border-radius: 4px;
+  font-family: "CabinetGrotesk", Helvetica, sans-serif;
+  font-weight: 700;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+}
+
+.modal__button-caption_delete {
+  color: #ff4d00;
+  background-color: transparent;
+}
+
+.modal__button-caption_cancel {
+  background-color: transparent;
+  color: #000000;
+}

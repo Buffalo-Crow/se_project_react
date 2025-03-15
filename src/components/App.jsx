@@ -1,5 +1,3 @@
-// fix submit button for adding clothing items ????? event handler or do a debugger
-
 import { useState } from "react";
 import { useEffect } from "react";
 import { Route, Routes } from "react-router-dom";
@@ -16,8 +14,8 @@ import { CurrentTempertatureUnitContext } from "../contexts/CurrentTemperatureUn
 
 import { coordinates, APIkey } from "../utils/constants";
 import AddItemModal from "./AddItemModal";
-//import { defaultClothingItems } from "../utils/constants";
-import { getItems } from "../utils/api";
+import { getItems, addItem } from "../utils/api";
+import DeleteModal from "./DeleteModal";
 
 function App() {
   const [weatherData, setWeatherData] = useState({
@@ -37,6 +35,10 @@ function App() {
     setActiveModal("add-garment");
   };
 
+  const handleDeleteConfirm = () => {
+    setActiveModal("delete-confirm");
+  };
+
   const closeActiveModal = () => {
     setActiveModal("");
   };
@@ -51,12 +53,20 @@ function App() {
   };
 
   const handleAddItemModalSubmit = ({ name, imageUrl, weatherType }) => {
-    setClothingItems([
-      { name, link: imageUrl, weather: weatherType },
-      ...clothingItems,
-    ]);
-    closeActiveModal();
+    addItem({ name, imageUrl, weatherType })
+      .then((res) => {
+        setClothingItems([
+          { name, imageUrl, weather: weatherType },
+          ...clothingItems,
+        ]);
+        closeActiveModal();
+      })
+      .catch((err) => console.log(err));
   };
+
+  // const handleDeleteSubmit = ({ _id }) => {
+  // handleDeleteCard(id);
+  //};
 
   useEffect(() => {
     getWeather(coordinates, APIkey)
@@ -117,6 +127,12 @@ function App() {
           handleCardClick={handleCardClick}
           closeActiveModal={closeActiveModal}
           isOpen={activeModal === "preview"}
+          handleDeleteConfirm={handleDeleteConfirm}
+        />
+        <DeleteModal
+          activeModal={activeModal}
+          isOpen={activeModal === "delete-confirm"}
+          closeActiveModal={closeActiveModal}
         />
       </div>
     </CurrentTempertatureUnitContext.Provider>

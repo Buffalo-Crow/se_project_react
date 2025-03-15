@@ -14,7 +14,7 @@ function ModalWithForm({
       }
 `}
     >
-      <div className="modal__container">
+      <div className="modal-with-form__container">
         <h2 className="modal__title">{title}</h2>
         <button
           type="button"

@@ -22,10 +22,10 @@ function Main({ weatherData, handleCardClick, clothingItems }) {
             .filter((item) => {
               return item.weather === weatherData.type;
             })
-            .map((item) => {
+            .map((item, i) => {
               return (
                 <ItemCard
-                  key={item._id}
+                  key={i + 1}
                   item={item}
                   onCardClick={handleCardClick}
                 />
