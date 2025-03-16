@@ -14,7 +14,7 @@ import { CurrentTempertatureUnitContext } from "../contexts/CurrentTemperatureUn
 
 import { coordinates, APIkey } from "../utils/constants";
 import AddItemModal from "./AddItemModal";
-import { getItems, addItem } from "../utils/api";
+import { getItems, addItem, handleDeleteCard } from "../utils/api";
 import DeleteModal from "./DeleteModal";
 
 function App() {
@@ -64,9 +64,18 @@ function App() {
       .catch((err) => console.log(err));
   };
 
-  // const handleDeleteSubmit = ({ _id }) => {
-  // handleDeleteCard(id);
-  //};
+  const handleDeleteSubmit = (e) => {
+    e.preventDefault();
+    handleDeleteCard(selectedCard._id)
+      .then(() => {
+        const newItemsArray = clothingItems.filter(
+          (item) => item._id !== selectedCard._id
+        );
+        setClothingItems(newItemsArray);
+        closeActiveModal();
+      })
+      .catch((err) => console.log(err));
+  };
 
   useEffect(() => {
     getWeather(coordinates, APIkey)
@@ -133,6 +142,7 @@ function App() {
           activeModal={activeModal}
           isOpen={activeModal === "delete-confirm"}
           closeActiveModal={closeActiveModal}
+          handleDeleteSubmit={handleDeleteSubmit}
         />
       </div>
     </CurrentTempertatureUnitContext.Provider>

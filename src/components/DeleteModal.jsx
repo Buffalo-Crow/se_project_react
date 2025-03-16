@@ -1,7 +1,7 @@
 import "../blocks/ItemModal.css";
 import "../blocks/DeleteModal.css";
 
-function DeleteModal({ closeActiveModal, activeModal }) {
+function DeleteModal({ closeActiveModal, activeModal, handleDeleteSubmit }) {
   return (
     <div
       className={`modal ${activeModal === "delete-confirm" && "modal_opened"}`}
@@ -19,7 +19,10 @@ function DeleteModal({ closeActiveModal, activeModal }) {
             className="modal__close modal__close_delete"
             onClick={closeActiveModal}
           ></button>
-          <button className="modal__button-caption_delete">
+          <button
+            onClick={handleDeleteSubmit}
+            className="modal__button-caption_delete"
+          >
             Yes delete this item
           </button>
           <button
