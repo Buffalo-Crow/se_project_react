@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useEffect } from "react";
 import { Route, Routes } from "react-router-dom";
 
-import "../blocks/App.css";
+import "../blocks/app.css";
 import Header from "./Header";
 import Main from "./Main";
 import Footer from "./Footer";
