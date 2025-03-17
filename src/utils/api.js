@@ -31,4 +31,4 @@ function getItems() {
   return fetch(`${baseUrl}/items`).then(checkResponse);
 }
 
-export { getItems, addItem, handleDeleteCard };
+export { getItems, addItem, handleDeleteCard, checkResponse };

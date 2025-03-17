@@ -15,11 +15,6 @@ function DeleteModal({ closeActiveModal, activeModal, handleDeleteSubmit }) {
         </p>
         <div className="modal__delete-buttons">
           <button
-            type="button"
-            className="modal__close modal__close_delete"
-            onClick={closeActiveModal}
-          ></button>
-          <button
             onClick={handleDeleteSubmit}
             className="modal__button-caption_delete"
           >

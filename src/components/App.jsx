@@ -55,10 +55,7 @@ function App() {
   const handleAddItemModalSubmit = ({ name, imageUrl, weatherType }) => {
     addItem({ name, imageUrl, weatherType })
       .then((res) => {
-        setClothingItems([
-          { name, imageUrl, weather: weatherType },
-          ...clothingItems,
-        ]);
+        setClothingItems([res, ...clothingItems]);
         closeActiveModal();
       })
       .catch((err) => console.log(err));

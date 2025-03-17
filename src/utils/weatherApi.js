@@ -1,10 +1,4 @@
-function checkResponse(res) {
-  if (res.ok) {
-    return res.json();
-  } else {
-    return Promise.reject(`Error: ${res.status}`);
-  }
-}
+import { checkResponse } from "./api";
 
 export const filterWeatherData = (data) => {
   const weatherResult = {};

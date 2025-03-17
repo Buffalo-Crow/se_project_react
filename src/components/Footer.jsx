@@ -7,7 +7,6 @@ function Footer() {
       <p className="footer__date">2025</p>
     </footer>
   );
-  ç;
 }
 
 export default Footer;
