@@ -23,7 +23,6 @@
 
 .cards__list_profile {
   padding-bottom: 80px;
-  margin-left: 190px;
   display: flex;
   flex-wrap: wrap;
   gap: 20px;
