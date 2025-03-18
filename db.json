@@ -85,24 +85,6 @@
       "imageUrl": "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/wtwr-project/T-Shirt.png?etag=44ed1963c44ab19cd2f5011522c5fc09"
     },
     {
-      "name": "vwv",
-      "imageUrl": "https://images.pexels.com/photos/4495705/pexels-photo-4495705.jpeg?auto=compress&cs=tinysrgb&w=1200",
-      "weather": "cold",
-      "_id": 17
-    },
-    {
-      "name": "Jordan Miller ",
-      "imageUrl": "https://images.pexels.com/photos/4495705/pexels-photo-4495705.jpeg?auto=compress&cs=tinysrgb&w=1200",
-      "weather": "cold",
-      "_id": 18
-    },
-    {
-      "name": "Jordan Miller ",
-      "imageUrl": "https://images.pexels.com/photos/4495705/pexels-photo-4495705.jpeg?auto=compress&cs=tinysrgb&w=1200",
-      "weather": "cold",
-      "_id": 19
-    },
-    {
       "name": "Jordan Miller ",
       "imageUrl": "https://images.pexels.com/photos/4495705/pexels-photo-4495705.jpeg?auto=compress&cs=tinysrgb&w=1200",
       "weather": "cold",
