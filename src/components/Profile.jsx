@@ -1,18 +1,17 @@
-import React from "react";
 import SideBar from "./SideBar";
 import ClothesSection from "./ClothesSection";
 import "../blocks/Profile.css";
-import { handleDeleteCard } from "../utils/api";
 
 function Profile({
   onCardClick,
   handleAddClick,
   clothingItems,
   handleDeleteCard,
+  handleEditModal,
 }) {
   return (
     <div className="profile">
-      <SideBar />
+      <SideBar handleEditModal={handleEditModal} />
       <ClothesSection
         onCardClick={onCardClick}
         handleAddClick={handleAddClick}

@@ -1,10 +1,10 @@
 import WeatherBanner from "../assets/weather_banner.png";
 import "../blocks/WeatherCard.css";
-import { CurrentTempertatureUnitContext } from "../contexts/CurrentTemperatureUnitContext";
+import { CurrentTemperatureUnitContext } from "../contexts/CurrentTemperatureUnitContext";
 import { useContext } from "react";
 
 function WeatherCard({ weatherData }) {
-  const { currentTemperatureUnit } = useContext(CurrentTempertatureUnitContext);
+  const { currentTemperatureUnit } = useContext(CurrentTemperatureUnitContext);
 
   return (
     <section className="weather-card">

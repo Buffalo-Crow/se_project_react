@@ -3,19 +3,41 @@
   position: relative;
   display: flex;
   justify-content: center;
+  align-items: center;
+}
+
+.card__container {
+  position: relative;
 }
 .card__caption {
   font-size: 16px;
   font-weight: 700;
   line-height: 20px;
-  display: flex;
   position: absolute;
   top: 15px;
-  margin: 0;
+  margin: 0, 10px, 0, 0;
   background-color: #ffffff;
   padding: 2px 12px;
   border-radius: 4px;
   font-family: "CabinetGrotesk";
+  max-width: 200px;
+}
+
+.card__like-button {
+  width: 21px;
+  height: 19px;
+  background: transparent url("../assets/heart_icon.png") center no-repeat;
+  background-size: 21px 18px;
+  border: none;
+  padding: 0;
+  margin: 0;
+  transition: 0.3s;
+}
+
+.card__container {
+  position: absolute;
+  top: 20px;
+  display: flex;
 }
 
 .card__image {

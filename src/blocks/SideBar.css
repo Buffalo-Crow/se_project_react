@@ -1,13 +1,38 @@
 .sidebar__profile {
   display: flex;
   padding-top: 15px;
-  width: 696px;
 }
 
 .sidebar__avatar {
   height: 56px;
   width: 56px;
   padding-right: 16px;
+  border-radius: 25%;
+}
+
+.sidebar__nav {
+  padding: 0;
+}
+
+.sidebar__buttons {
+  font-family: "CabinetGrotesk", Helvetica, sans-serif;
+  display: flex;
+}
+
+.sidebar__nav-item {
+  list-style-type: none;
+}
+
+.sidebar__nav-btn {
+  background-color: transparent;
+  border-style: none;
+  font-family: "CabinetGrotesk", Helvetica, sans-serif;
+}
+
+.sidebar__edit-button {
+  background-color: transparent;
+  border-style: none;
+  font-family: "CabinetGrotesk", Helvetica, sans-serif;
 }
 
 .sidebar__username {
