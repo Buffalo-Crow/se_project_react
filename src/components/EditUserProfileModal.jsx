@@ -23,7 +23,6 @@ function EditUserProfileModal({
       [name]: value,
     }));
   };
-  console.log(data, currentUser.name, currentUser.avatar);
 
   const handleProfileChangeSubmit = (e) => {
     e.preventDefault();

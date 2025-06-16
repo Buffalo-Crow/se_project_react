@@ -15,7 +15,14 @@ import { CurrentUserContext } from "../contexts/CurrentUserContext";
 
 import { coordinates, APIkey } from "../utils/constants";
 import AddItemModal from "./AddItemModal";
-import { getItems, addItem, handleDeleteCard, editProfile } from "../utils/api";
+import {
+  getItems,
+  addItem,
+  handleDeleteCard,
+  editProfile,
+  addCardLike,
+  removeCardLike,
+} from "../utils/api";
 import DeleteModal from "./DeleteModal";
 import RegisterModal from "./RegisterModal";
 import { register, signin, getUserInfo } from "../utils/auth";
@@ -45,8 +52,11 @@ function App() {
     password: "",
   });
 
+  // const [isError, setIsError] = useState(""); for future use
+
   const navigate = useNavigate();
 
+  //registration and login and authentication handlers
   const handleAuth = () => {
     const token = getToken();
     if (!token) {
@@ -62,7 +72,6 @@ function App() {
       .catch(console.error);
   };
 
-  //registration and login and authentication handlers
   const handleRegister = ({ name, avatar, email, password }) => {
     register(name, avatar, email, password)
       .then(() => {
@@ -81,6 +90,7 @@ function App() {
   const handleLogin = ({ email, password }) => {
     if (!email || !password) {
       return;
+      //setIsError
     }
     signin(email, password)
       .then((res) => {
@@ -90,16 +100,16 @@ function App() {
       .then((res) => {
         setCurrentUser(res);
         setIsLoggedIn(true);
+        closeActiveModal();
         navigate("/profile");
       })
       .catch(console.error);
   };
 
-  // const handleSignOut =()=>{
-  //   setIsLoggedIn(false)   
-//   removeToken();
-//navigate("/");
- // };
+  const handleSignOut = () => {
+    removeToken();
+    setIsLoggedIn(false);
+  };
 
   // clickHandlers
   const handleAddClick = () => {
@@ -109,6 +119,27 @@ function App() {
   const handleCardClick = (item) => {
     setActiveModal("preview");
     setSelectedCard(item);
+  };
+
+  const handleCardLike = ({ id, isLiked }) => {
+    const token = getToken();
+    !isLiked
+      ? addCardLike(id, token)
+          .then((res) => {
+            const updatedItems = clothingItems.map((item) =>
+              item._id === id ? { ...item, likes: res.likes } : item
+            );
+            setClothingItems(updatedItems);
+          })
+          .catch(console.error)
+      : removeCardLike(id, token)
+          .then((res) => {
+            const updatedItems = clothingItems.map((item) =>
+              item._id === id ? { ...item, likes: res.likes } : item
+            );
+            setClothingItems(updatedItems);
+          })
+          .catch((err) => console.log(err));
   };
 
   const handleDeleteConfirm = () => {
@@ -160,6 +191,12 @@ function App() {
   };
 
   useEffect(() => {
+    if (!isLoggedIn) {
+      navigate("/");
+    }
+  }, [isLoggedIn]);
+
+  useEffect(() => {
     handleAuth();
   }, []);
 
@@ -198,6 +235,7 @@ function App() {
               path="/"
               element={
                 <Main
+                  onCardLike={handleCardLike}
                   weatherData={weatherData}
                   handleCardClick={handleCardClick}
                   clothingItems={clothingItems}
@@ -209,10 +247,12 @@ function App() {
               element={
                 <ProtectedRoute isLoggedIn={isLoggedIn}>
                   <Profile
+                    onCardLike={handleCardLike}
                     onCardClick={handleCardClick}
                     handleAddClick={handleAddClick}
                     clothingItems={clothingItems}
                     handleEditModal={handleEditModal}
+                    handleSignOut={handleSignOut}
                   />
                 </ProtectedRoute>
               }

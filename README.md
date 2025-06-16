@@ -1,12 +1,12 @@
 # WTWR
 
 What to wear is a simple user friendly application and it's technology makes suggestions on what to wear depending on the weather.
-The weather is set by using location and implements using an api, in addition to another api to store data, retrieve and make changes.
-The second API works in conjunction with a mock server.
+This project implements user auth which is a key in any application.
+The weather is set by using location and implements using a weather API, in addition to another API to store data, retrieve and make changes. (CRUD)
 
 The journey with this creation was the hardest by far but one of the most rewarding projects that I have worked on to date.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+# [Link to the back end project] (https://github.com/Buffalo-Crow/se_project_express)
 
 Currently, two official plugins are available:
 

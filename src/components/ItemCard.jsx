@@ -1,10 +1,28 @@
 import "../blocks/ItemCard.css";
 import Heart from "../assets/heart_icon.png";
+import { useContext } from "react";
+import { CurrentUserContext } from "../contexts/CurrentUserContext";
 
-function ItemCard({ item, onCardClick }) {
+function ItemCard({ item, onCardClick, onCardLike }) {
+
+  const {currentUser } = useContext(CurrentUserContext);
+ const isLiked =
+    currentUser && item.likes.some((id) => id === currentUser._id);
+
+  const handleLikeClick = () => {
+   onCardLike({ id: item._id, isLiked });
+  };
+
+  const likeButtonClassName = `card__like-button ${
+    isLiked ? "card__like-button_active" : ""
+  }`;
+
+
+
   const handleCardClick = () => {
     onCardClick(item);
   };
+
   return (
     <li className="card">
       <img
@@ -15,7 +33,10 @@ function ItemCard({ item, onCardClick }) {
       />
       <div className="card__container">
         <h2 className="card__caption">{item.name}</h2>
-        <button className=".card__like-button">♥</button>
+        <button
+          onClick={handleLikeClick}
+          className={likeButtonClassName}
+        ></button>
       </div>
     </li>
   );

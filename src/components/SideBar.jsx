@@ -1,9 +1,8 @@
-import React from "react";
 import "../blocks/SideBar.css";
 import { useContext } from "react";
 import { CurrentUserContext } from "../contexts/CurrentUserContext";
 
-function SideBar({ handleEditModal }) {
+function SideBar({ handleEditModal, handleSignOut }) {
   const { currentUser } = useContext(CurrentUserContext);
   return (
     <>
@@ -23,7 +22,9 @@ function SideBar({ handleEditModal }) {
             </button>
           </li>
           <li className="sidebar__nav-item">
-            <button className="sidebar__nav-btn">Sign Out </button>
+            <button className="sidebar__nav-btn" onClick={handleSignOut}>
+              Sign Out{" "}
+            </button>
           </li>
         </ul>
       </div>

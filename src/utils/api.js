@@ -8,6 +8,24 @@ function checkResponse(res) {
   return Promise.reject(`Error: ${res.status}`);
 }
 
+function addCardLike(id, token) {
+  return fetch(`${baseUrl}/items/${id}/likes`, {
+    method: "PUT",
+    headers: {
+      authorization: `Bearer ${token}`,
+    },
+  }).then((res) => checkResponse(res));
+}
+
+function removeCardLike(id, token) {
+  return fetch(`${baseUrl}/items/${id}/likes`, {
+    method: "DELETE",
+    headers: {
+      authorization: `Bearer ${token}`,
+    },
+  }).then((res) => checkResponse(res));
+}
+
 function handleDeleteCard(id) {
   return fetch(`${baseUrl}/items/${id}`, {
     method: "DELETE",
@@ -50,4 +68,12 @@ function getItems() {
   return fetch(`${baseUrl}/items`).then(checkResponse);
 }
 
-export { getItems, addItem, handleDeleteCard, checkResponse, editProfile };
+export {
+  getItems,
+  addItem,
+  handleDeleteCard,
+  checkResponse,
+  editProfile,
+  addCardLike,
+  removeCardLike,
+};

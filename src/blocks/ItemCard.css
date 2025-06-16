@@ -6,16 +6,13 @@
   align-items: center;
 }
 
-.card__container {
-  position: relative;
-}
+
 .card__caption {
   font-size: 16px;
   font-weight: 700;
   line-height: 20px;
-  position: absolute;
   top: 15px;
-  margin: 0, 10px, 0, 0;
+  margin: 0px 10px 0px  0px;
   background-color: #ffffff;
   padding: 2px 12px;
   border-radius: 4px;
@@ -29,15 +26,25 @@
   background: transparent url("../assets/heart_icon.png") center no-repeat;
   background-size: 21px 18px;
   border: none;
-  padding: 0;
   margin: 0;
   transition: 0.3s;
+}
+
+.card__like-button_active{
+  background: url("../assets/like_button_filled.png") center no-repeat;
+  background-size: 21px 18px;
+  width: 21px;
+  height: 19px;
+  border: none;
+  margin: 0;
 }
 
 .card__container {
   position: absolute;
   top: 20px;
   display: flex;
+  flex-direction: row;
+  align-items: center;
 }
 
 .card__image {

@@ -4,7 +4,7 @@ import { CurrentTemperatureUnitContext } from "../contexts/CurrentTemperatureUni
 
 function ToggleSwitch() {
   const { handleToggleSwitchChange, currentTemperatureUnit } = useContext(
-    CurrentTemperatureUnitContext
+    CurrentTemperatureUnitContext,
   );
 
   return (

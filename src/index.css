@@ -6,7 +6,8 @@
   font-weight: 500;
   font-display: swap;
   font-style: normal;
-  src: url("./assets/CabinetGrotesk-Medium.woff2") format("woff2"),
+  src:
+    url("./assets/CabinetGrotesk-Medium.woff2") format("woff2"),
     url("./assets/CabinetGrotesk-Medium.woff") format("woff"),
     url("./assets/CabinetGrotesk-Medium.ttf") format("truetype");
 }
@@ -16,7 +17,8 @@
   font-weight: 700;
   font-display: swap;
   font-style: normal;
-  src: url("./assets/CabinetGrotesk-Bold.woff2") format("woff2"),
+  src:
+    url("./assets/CabinetGrotesk-Bold.woff2") format("woff2"),
     url("./assets/CabinetGrotesk-Bold.woff") format("woff"),
     url("./assets/CabinetGrotesk-Bold.ttf") format("truetype");
 }
@@ -26,7 +28,8 @@
   font-weight: 900;
   font-display: swap;
   font-style: normal;
-  src: url("./assets/CabinetGrotesk-Black.woff2") format("woff2"),
+  src:
+    url("./assets/CabinetGrotesk-Black.woff2") format("woff2"),
     url("./assets/CabinetGrotesk-Black.woff") format("woff"),
     url("./assets/CabinetGrotesk-Black.ttf") format("truetype");
 }
