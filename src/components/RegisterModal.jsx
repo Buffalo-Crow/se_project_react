@@ -47,7 +47,7 @@ function RegisterModal({ closeActiveModal, isOpen, activeModal, onRegister }) {
         />{" "}
       </label>
       <label className="modal__label">
-        Email{" "}
+        Email
         <input
           placeholder="Email"
           className="modal__input"

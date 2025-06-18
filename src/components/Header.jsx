@@ -30,13 +30,6 @@ function Header({ handleAddClick, weatherData, setActiveModal }) {
         {currentDate}, {weatherData.city}
       </p>
       <ToggleSwitch />
-      <button
-        type="button"
-        onClick={handleAddClick}
-        className="header__add-clothes-btn"
-      >
-        + Add Clothes
-      </button>
 
       {!isLoggedIn ? (
         <div>
@@ -57,6 +50,13 @@ function Header({ handleAddClick, weatherData, setActiveModal }) {
         </div>
       ) : (
         <div className="header__user-container">
+          <button
+            type="button"
+            onClick={handleAddClick}
+            className="header__add-clothes-btn"
+          >
+            + Add Clothes
+          </button>
           <Link className="header__username-link " to="/profile">
             <p className="header__username">{currentUser.name}</p>
           </Link>

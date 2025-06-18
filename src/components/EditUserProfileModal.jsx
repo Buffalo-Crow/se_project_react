@@ -10,7 +10,10 @@ function EditUserProfileModal({
   onEditProfileData,
 }) {
   const { currentUser } = useContext(CurrentUserContext);
-  const [data, setData] = useState({});
+  const [data, setData] = useState({
+    name: currentUser.name,
+    avatar: currentUser.avatar,
+  });
 
   useEffect(() => {
     setData({ name: currentUser.name, avatar: currentUser.avatar });
@@ -44,13 +47,13 @@ function EditUserProfileModal({
           placeholder="Name"
           className="modal__input"
           type="text"
-          id="registername"
+          id="editusername"
           name="name"
           required
           minLength={"1"}
           maxLength={"30"}
           onChange={handleChange}
-          value={data.name}
+          value={data.name || ""}
         />{" "}
       </label>
       <label className="modal__label">
@@ -60,9 +63,9 @@ function EditUserProfileModal({
           className="modal__input"
           placeholder="Image URL"
           required
-          id="avatar"
+          id="edituseravatar"
           name="avatar"
-          value={data.avatar}
+          value={data.avatar || ""}
           onChange={handleChange}
         />{" "}
       </label>

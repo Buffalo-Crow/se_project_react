@@ -51,7 +51,7 @@ function App() {
     email: "",
     password: "",
   });
-
+  const [isLoading, setIsLoading] = useState(false);
   // const [isError, setIsError] = useState(""); for future use
 
   const navigate = useNavigate();
@@ -116,6 +116,10 @@ function App() {
     setActiveModal("add-garment");
   };
 
+  const handleRegisterClick = () => {
+    setActiveModal("register");
+  };
+
   const handleCardClick = (item) => {
     setActiveModal("preview");
     setSelectedCard(item);
@@ -171,10 +175,14 @@ function App() {
   const handleAddItemModalSubmit = ({ name, imageUrl, weatherType }) => {
     addItem({ name, imageUrl, weatherType })
       .then((res) => {
+        setIsLoading(true);
         setClothingItems([res, ...clothingItems]);
         closeActiveModal();
       })
-      .catch((err) => console.log(err));
+      .catch((err) => console.log(err))
+      .finally(() => {
+        setIsLoading(false);
+      });
   };
 
   const handleDeleteSubmit = (e) => {
@@ -265,6 +273,7 @@ function App() {
             isOpen={activeModal === "add-garment"}
             activeModal={activeModal}
             onAddItemModalSubmit={handleAddItemModalSubmit}
+            buttonText={isLoading ? "Saving..." : "Save"}
           />
           <ItemModal
             activeModal={activeModal}
@@ -273,30 +282,36 @@ function App() {
             closeActiveModal={closeActiveModal}
             isOpen={activeModal === "preview"}
             handleDeleteConfirm={handleDeleteConfirm}
+            buttonText={isLoading ? "Saving..." : "Save"}
           />
           <DeleteModal
             activeModal={activeModal}
             isOpen={activeModal === "delete-confirm"}
             closeActiveModal={closeActiveModal}
             handleDeleteSubmit={handleDeleteSubmit}
+            buttonText={isLoading ? "Deleting..." : "Delete"}
           />
           <RegisterModal
             activeModal={activeModal}
             isOpen={activeModal === "register"}
             closeActiveModal={closeActiveModal}
             onRegister={handleRegister}
+            buttonText={isLoading ? "Saving..." : "Save"}
           />
           <LoginModal
             onLogin={handleLogin}
             activeModal={activeModal}
             isOpen={activeModal === "login"}
             closeActiveModal={closeActiveModal}
+            buttonText={isLoading ? "Logging in..." : "Login"}
+            handleRegisterClick={handleRegisterClick}
           />
           <EditUserProfileModal
             isOpen={activeModal === "edit-modal"}
             handleEditModal={handleEditModal}
             closeActiveModal={closeActiveModal}
             onEditProfileData={handleEditProfileData}
+            buttonText={isLoading ? "Saving..." : "Save"}
           />
         </div>
       </CurrentUserContext.Provider>

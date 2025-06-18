@@ -45,6 +45,10 @@
   margin-bottom: 8px;
   color: #00000080;
 }
+.modal__button-container {
+  display: flex;
+  flex-direction: row;
+}
 
 .modal-with-form__container {
   font-family: "CabinetGrotesk", Helvetica, sans-serif;

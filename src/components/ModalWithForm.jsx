@@ -22,11 +22,13 @@ function ModalWithForm({
           onClick={closeActiveModal}
         />
         <form onSubmit={onSubmit} className="modal__form">
-          {" "}
           {children}
-          <button type="submit" className="modal__submit">
-            {buttonText}
-          </button>
+
+          <div className="modal__button-container">
+            <button type="submit" className="modal__submit">
+              {buttonText}
+            </button>
+          </div>
         </form>{" "}
       </div>
     </div>
