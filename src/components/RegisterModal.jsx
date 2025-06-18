@@ -1,7 +1,13 @@
 import ModalWithForm from "./ModalWithForm";
 import { useState } from "react";
 
-function RegisterModal({ closeActiveModal, isOpen, activeModal, onRegister }) {
+function RegisterModal({
+  closeActiveModal,
+  isOpen,
+  activeModal,
+  onRegister,
+  handleLoginClick,
+}) {
   const [data, setData] = useState({
     name: "",
     avatar: "",
@@ -30,6 +36,15 @@ function RegisterModal({ closeActiveModal, isOpen, activeModal, onRegister }) {
       closeActiveModal={closeActiveModal}
       isOpen={isOpen}
       onSubmit={handleRegistrationSubmit}
+      childrenButtons={
+        <button
+          className="modal__redirect_login-btn"
+          type="button"
+          onClick={handleLoginClick}
+        >
+          Or Log In
+        </button>
+      }
     >
       <label className="modal__label">
         Name{" "}

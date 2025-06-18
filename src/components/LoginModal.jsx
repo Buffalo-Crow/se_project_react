@@ -35,6 +35,15 @@ function LoginModal({
         closeActiveModal={closeActiveModal}
         isOpen={isOpen}
         onSubmit={handleLoginSubmit}
+        childrenButtons={
+          <button
+            className="modal__redirect_register-btn"
+            type="button"
+            onClick={handleRegisterClick}
+          >
+            Or Sign Up
+          </button>
+        }
       >
         <label className="modal__label">
           Email{" "}
@@ -66,13 +75,6 @@ function LoginModal({
             value={data.password}
           />{" "}
         </label>
-        <button
-          type="button"
-          className="modal__redirect_register"
-          onClick={handleRegisterClick}
-        >
-          Or sign Up
-        </button>
       </ModalWithForm>
     </>
   );

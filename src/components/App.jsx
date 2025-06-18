@@ -90,7 +90,6 @@ function App() {
   const handleLogin = ({ email, password }) => {
     if (!email || !password) {
       return;
-      //setIsError
     }
     signin(email, password)
       .then((res) => {
@@ -118,6 +117,10 @@ function App() {
 
   const handleRegisterClick = () => {
     setActiveModal("register");
+  };
+
+  const handleLoginClick = () => {
+    setActiveModal("login");
   };
 
   const handleCardClick = (item) => {
@@ -296,6 +299,7 @@ function App() {
             isOpen={activeModal === "register"}
             closeActiveModal={closeActiveModal}
             onRegister={handleRegister}
+            handleLoginClick={handleLoginClick}
             buttonText={isLoading ? "Saving..." : "Save"}
           />
           <LoginModal

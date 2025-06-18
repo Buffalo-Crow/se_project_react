@@ -6,6 +6,14 @@ The weather is set by using location and implements using a weather API, in addi
 
 The journey with this creation was the hardest by far but one of the most rewarding projects that I have worked on to date.
 
+Plans for improvement.
+
+# Utilize React Modal, and create a form component
+
+# Implement form Validation
+
+# Create a responsive application for multi divice optimization
+
 # [Link to the back end project] (https://github.com/Buffalo-Crow/se_project_express)
 
 Currently, two official plugins are available:

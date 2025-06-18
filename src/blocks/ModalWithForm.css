@@ -50,6 +50,13 @@
   flex-direction: row;
 }
 
+.modal__redirect_login-btn,
+.modal__redirect_register-btn {
+  padding-left: 13px;
+  background: transparent;
+  border-style: none;
+}
+
 .modal-with-form__container {
   font-family: "CabinetGrotesk", Helvetica, sans-serif;
   position: relative;
