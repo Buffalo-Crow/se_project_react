@@ -1,5 +1,4 @@
 import "../blocks/ItemCard.css";
-import Heart from "../assets/heart_icon.png";
 import { useContext } from "react";
 import { CurrentUserContext } from "../contexts/CurrentUserContext";
 

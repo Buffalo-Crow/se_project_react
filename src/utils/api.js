@@ -1,5 +1,5 @@
 import { getToken } from "./token";
-import baseUrl from "./constants";
+import { baseUrl } from "../utils/constants";
 
 function checkResponse(res) {
   if (res.ok) {

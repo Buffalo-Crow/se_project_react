@@ -1,7 +1,7 @@
 import { checkResponse } from "./api";
 import { getToken } from "./token";
 
-import baseUrl from "./constants";
+import { baseUrl } from "../utils/constants";
 
 export const register = (name, avatar, email, password) => {
   return fetch(`${baseUrl}/signup`, {

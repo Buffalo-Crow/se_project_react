@@ -22,7 +22,7 @@ function Main({ weatherData, handleCardClick, clothingItems, onCardLike }) {
             .filter((item) => {
               return item.weather === weatherData.type;
             })
-            .map((item, i) => {
+            .map((item) => {
               return (
                 <ItemCard
                   onCardLike={onCardLike}
