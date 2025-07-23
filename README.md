@@ -15,6 +15,7 @@ Plans for improvement.
 # Create a responsive application for multi divice optimization
 
 # [Link to the back end project] (https://github.com/Buffalo-Crow/se_project_express)
+#View the full stack project live here (https://buffalocrow.justlearning.net)
 
 Currently, two official plugins are available:
 
